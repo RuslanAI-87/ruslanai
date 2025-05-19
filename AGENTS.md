@@ -11,6 +11,26 @@ RuslanAI is a sophisticated multi-agent AI platform designed for coordinating va
 - Memory System - Multi-level context storage and processing
 - Specialized Agents - Autonomous components for specific tasks
 
+## GitHub Repository Access
+
+The CodexAgent has direct access to modify the repository through the GitHub API. This enables autonomous operations such as:
+
+- Creating new files
+- Updating existing files
+- Analyzing repository structure
+- Implementing code improvements directly
+
+### Using Repository Access
+
+The GitHub access is implemented through the `commit_changes` method in the CodexAgent class:
+
+```python
+agent.commit_changes(
+    file_path="path/to/file.py",  # Path relative to repository root
+    content="New file content",    # Complete content for the file
+    commit_message="Description of changes"  # Message for the commit
+)
+
 ## Code Style & Standards
 - Follow PEP8 for all Python code
 - Use snake_case for Python variables, functions, and file names
