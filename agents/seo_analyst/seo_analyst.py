@@ -1,4 +1,4 @@
-﻿from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright
 import openai
 import os
 import json
@@ -25,7 +25,7 @@ def analyze_url(url):
             meta = desc["content"].strip()
         summary = f"Title: {title}\\nMeta: {meta}\\nH1: {h1}\\nH2: {h2}\\nH3: {h3}"
         prompt = f"""
-You are a strategic SEO consultant with critical thinking. Analyze the HTML. List SEO issues with rationale and clear recommendations. Then evaluate the Google My Business presence (use web data if needed). Then list modern tools (2024–2025) other SEOs use for such projects. Finally, ask at least 3 intelligent follow-up questions.\n\nHTML:\n{summary}
+You are a strategic SEO consultant with critical thinking. Analyze the HTML. List SEO issues with rationale and clear recommendations. Then evaluate the Google My Business presence (use web data if needed). Then list modern tools (2024�2025) other SEOs use for such projects. Finally, ask at least 3 intelligent follow-up questions.\n\nHTML:\n{summary}
 """
         response = openai.chat.completions.create(
             model="gpt-3.5-turbo",
