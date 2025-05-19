@@ -1,0 +1,5 @@
+﻿entryPoint: execute_code
+runtime: python311
+source: .
+trigger:
+  httpTrigger: {}
