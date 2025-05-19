@@ -1,0 +1,45 @@
+Device set to use cuda:0
+INFO:     Started server process [25756]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8001 (Press CTRL+C to quit)
+Found ffmpeg at C:/RuslanAI/tools/ffmpeg/bin/ffmpeg.exe
+FFmpeg successfully found in system
+Device set to use cuda:0
+Loading Whisper model openai/whisper-small on cuda:0...
+Whisper model loaded successfully!
+?????????? ? ???????? ????????????????
+Super Agent initialized successfully!
+Starting Ruslan AI Backend on port 8001...
+INFO:     127.0.0.1:57575 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57575 - "GET / HTTP/1.1" 200 OK
+Due to a bug fix in https://github.com/huggingface/transformers/pull/28687 transcription using a multilingual Whisper will default to language detection followed by transcription instead of translation to English.This might be a breaking change for your use case. If you want to instead always translate your audio to English, make sure to pass `language='en'`.
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+Received audio file: mic.webm
+Audio saved to C:\Users\info\AppData\Local\Temp\tmpwod1sfab.webm, size: 398869 bytes
+Attempting to convert audio to WAV format...
+Conversion output: No output
+Converted audio to C:\Users\info\AppData\Local\Temp\tmpwod1sfab.wav
+Starting transcription with WAV file...
+Transcription result:  ???, ??????, ????? ???, ?? ????????? ???? ???????...
+INFO:     127.0.0.1:57592 - "POST /whisper HTTP/1.1" 200 OK
+Received chat request:  ???, ??????, ????? ???, ?? ??...
+INFO:     127.0.0.1:57592 - "POST /chat HTTP/1.1" 200 OK
+Received audio file: mic.webm
+Audio saved to C:\Users\info\AppData\Local\Temp\tmpcytyvb97.webm, size: 390924 bytes
+Attempting to convert audio to WAV format...
+Conversion output: No output
+Converted audio to C:\Users\info\AppData\Local\Temp\tmpcytyvb97.wav
+Starting transcription with WAV file...
+Transcription result:  ??????. ????? ??????????? ? ???? ?????? ?????????...
+INFO:     127.0.0.1:57594 - "POST /whisper HTTP/1.1" 200 OK
+Received chat request:  ??????. ????? ??????????? ? ?...
+INFO:     127.0.0.1:57594 - "POST /chat HTTP/1.1" 200 OK
+C:\Users\info\AppData\Roaming\Python\Python311\site-packages\transformers\models\whisper\generation_whisper.py:573: FutureWarning: The input name `inputs` is deprecated. Please make sure to use `input_features` instead.
+  warnings.warn(
+C:\Users\info\AppData\Roaming\Python\Python311\site-packages\transformers\models\whisper\modeling_whisper.py:549: UserWarning: 1Torch was not compiled with flash attention. (Triggered internally at ..\aten\src\ATen\native\transformers\cuda\sdp_utils.cpp:263.)
+  attn_output = torch.nn.functional.scaled_dot_product_attention(
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [25756]

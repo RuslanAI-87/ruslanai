@@ -1,0 +1,3 @@
+@echo off
+echo Starting RuslanAI system with central orchestrator integration...
+powershell -ExecutionPolicy Bypass -File "%~dp0scripts\run_integrated_system.ps1"

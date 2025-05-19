@@ -1,0 +1,51 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20250517004930
+Username: MSI\info
+RunAs User: MSI\info
+Configuration Name: 
+Machine: MSI (Microsoft Windows NT 10.0.26100.0)
+Host Application: powershell -ExecutionPolicy Bypass -File C:\RuslanAI\run_with_powershell.ps1
+Process ID: 20920
+PSVersion: 5.1.26100.4061
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.4061
+BuildVersion: 10.0.26100.4061
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\RuslanAI\websocket_ps_log.txt
+Starting diagnostic process...
+Current directory: C:\Windows\System32
+Checking Node.js...
+Node.js version: v20.11.1
+Changed directory to: C:\RuslanAI\scripts
+Installing dependencies...
+
+up to date, audited 6 packages in 922ms
+
+1 package is looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+Starting WebSocket server...
+    at node:internal/main/run_main_module:28:49
+Emitted 'error' event on WebSocketServer instance at:
+    at Server.emit (node:events:518:28)
+    at emitErrorNT (node:net:1899:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+  code: 'EADDRINUSE',
+  errno: -4091,
+  syscall: 'listen',
+  address: '::',
+  port: 8009
+}
+
+Node.js v20.11.1
+Server execution completed with exit code 1
+**********************
+Windows PowerShell transcript end
+End time: 20250517004933
+**********************

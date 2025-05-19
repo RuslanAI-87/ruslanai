@@ -1,0 +1,3 @@
+@echo off
+echo Starting PowerShell with diagnostic script...
+powershell -ExecutionPolicy Bypass -File "%~dp0run_with_powershell.ps1"

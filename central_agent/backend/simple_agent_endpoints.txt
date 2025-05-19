@@ -1,0 +1,45 @@
+
+# Import and initialize the agent bridge
+try:
+    from simple_agent_bridge import get_agent_bridge
+    agent_bridge = get_agent_bridge(OPENAI_API_KEY)
+    print("Agent bridge initialized successfully")
+except Exception as e:
+    print(f"Error initializing agent bridge: {e}")
+    agent_bridge = None
+
+@app.get("/agents")
+async def list_agents():
+    """List all available agents"""
+    if not agent_bridge:
+        return {"error": "Agent bridge not available"}
+    
+    agents = agent_bridge.list_agents()
+    return {"agents": agents}
+
+@app.post("/seo/analyze")
+async def analyze_seo(url: str = Form(...)):
+    """Run SEO analysis on a URL"""
+    if not agent_bridge:
+        return {"error": "Agent bridge not available"}
+    
+    result = agent_bridge.run_seo_analysis(url)
+    return result
+
+@app.get("/docker/status")
+async def get_docker_status():
+    """Get Docker status"""
+    if not agent_bridge:
+        return {"error": "Agent bridge not available"}
+    
+    status = agent_bridge.docker_status()
+    return status
+
+@app.post("/autogpt/start")
+async def start_autogpt():
+    """Start AutoGPT container"""
+    if not agent_bridge:
+        return {"error": "Agent bridge not available"}
+    
+    result = agent_bridge.start_autogpt()
+    return result

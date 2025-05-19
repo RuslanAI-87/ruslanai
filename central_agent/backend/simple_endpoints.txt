@@ -1,0 +1,20 @@
+try:
+    from simple_integration import get_integration
+    integration = get_integration(OPENAI_API_KEY)
+except Exception as e:
+    print(f"Error: {e}")
+    integration = None
+
+@app.get("/agents/list")
+async def list_agents():
+    """?????? ????????? ???????"""
+    if not integration:
+        return {"error": "Integration not available"}
+    return {"agents": integration.list_agents()}
+
+@app.post("/agents/seo/analyze")
+async def analyze_seo(url: str = Form(...)):
+    """?????? SEO ???????"""
+    if not integration:
+        return {"error": "Integration not available"}
+    return integration.run_seo_analysis(url)

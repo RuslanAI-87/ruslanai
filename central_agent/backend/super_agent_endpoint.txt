@@ -1,0 +1,48 @@
+# Import super agent
+try:
+    from super_agent import get_super_agent, SYSTEM_PROMPT
+    super_agent = get_super_agent()
+    print("Super Agent initialized successfully!")
+except Exception as e:
+    print(f"Error initializing Super Agent: {e}")
+    super_agent = None
+
+@app.post("/super_agent")
+async def process_super_agent_request(request: str = Form(...)):
+    """
+    Process request with Super Agent capabilities
+    """
+    if not super_agent:
+        return {"error": "Super Agent not initialized"}
+    
+    result = super_agent.process_request(request)
+    
+    # If this is a regular conversation, use the response as is
+    if result.get("type") == "conversation":
+        return {"response": result.get("response", "")}
+    
+    # For other types of operations, include both the data and a human-readable response
+    return {
+        "response": result.get("response", ""),
+        "operation_data": {
+            "type": result.get("type", "unknown"),
+            "operation": result.get("operation", "unknown"),
+            "status": result.get("status", "unknown"),
+            "result": result.get("result", {})
+        }
+    }
+
+# Override the speech endpoint to use Super Agent when appropriate
+@app.post("/speech")
+async def process_speech(text: str = Form(...)):
+    """Process speech text input"""
+    print(f"Received speech text: {text}")
+    
+    # Use Super Agent for processing all requests
+    if super_agent:
+        result = super_agent.process_request(text)
+        return {"response": result.get("response", "? ?? ???? ?????????? ??? ??????.")}
+    
+    # If Super Agent is not available, use the default processing
+    response = f"? ??????? ??? ??????: '{text}', ?? Super Agent ?? ???????????????, ??????? ? ?? ???? ????????? ??????????? ????????."
+    return {"response": response}
