@@ -1,3 +1,5 @@
+import base64  # Добавьте этот импорт в начало файла
+
 # В класс CodexAgent добавьте следующие методы:
 
 def init_github_access(self):
